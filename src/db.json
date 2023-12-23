@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "login": "anton",
+      "password": "F6391453d",
+      "role_id": 0
+    },
+    {
+      "login": "FidaVS",
+      "password": "123456",
+      "role_id": 1,
+      "id": "K8-GWP-"
+    },
+    {
+      "login": "ivan",
+      "password": "123456",
+      "role_id": 2,
+      "id": "u7PPXBf"
+    }
+  ],
+  "roles": [
+    {
+      "id": 0,
+      "name": "Администратор"
+    },
+    {
+      "id": 1,
+      "name": "Игрок"
+    },
+    {
+      "id": 2,
+      "name": "Гость"
+    }
+  ],
+  "comments": [
+    {
+      "author_id": "001",
+      "post_id": "6djOHAr",
+      "published_at": "2038-09-22 16:01",
+      "content": "Классная статья! И главное, про кодинг!",
+      "id": 1
+    }
+  ],
+  "sessions": [
+    {
+      "hash": "0.06430836100611458938658415718236938118934631347656",
+      "user": {
+        "id": "001",
+        "login": "anton",
+        "password": "F6391453d",
+        "registeredAt": "2050-09-22",
+        "roleId": 0
+      },
+      "id": 1
+    }
+  ]
+}
