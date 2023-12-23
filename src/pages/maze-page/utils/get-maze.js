@@ -3,14 +3,14 @@ import { SIZE_OF_SIDE } from "../../../constants";
 
 
  export const getMaze = (size) => {
-	let matrix = [];
-	for (let i = 0; i < size; i++) {
-		const row = [];
-		for (let j = 0; j < size; j++) {
-			row.push(1);
-		}
-		matrix.push(row);
-	};
+	let matrix = new Array(size).fill().map(() => new Array(size).fill(1));
+	// for (let i = 0; i < size; i++) {
+	// 	const row = [];
+	// 	for (let j = 0; j < size; j++) {
+	// 		row.push(1);
+	// 	}
+	// 	matrix.push(row);
+	// };
 
 	let oddArray = getOddArray(SIZE_OF_SIDE);
 

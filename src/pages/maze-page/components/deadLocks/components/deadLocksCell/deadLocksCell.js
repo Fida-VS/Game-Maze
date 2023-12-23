@@ -1,9 +1,10 @@
+import { HOLE } from '../../../../../../constants';
 import styled from 'styled-components';
 
 const DeadLocksCellContainer = ({ className, val }) => {
 	return (
 		<div className={className}>
-			<div className="circle"></div>
+			{val === 5 && (<img className="smile" src={HOLE.imgPath} alt="smile" />)}
 		</div>
 	);
 };

@@ -5,10 +5,13 @@ import { getUnits, getCharacter } from './utils';
 import { SIZE_OF_SIDE } from '../../constants';
 import styled from 'styled-components';
 
-const MazePageContainer = ({ className }) => {
-	let maze = getMaze(SIZE_OF_SIDE);
-	let units = getUnits(maze);
+let maze = getMaze(SIZE_OF_SIDE);
+let units = getUnits(maze);
 	let character = getCharacter(maze, units);
+
+const MazePageContainer = ({ className }) => {
+
+	//console.log(character);
 
 	const [mazeLayer, setMazeLayer] = useState([]);
 	const [unitsLayer, setUnitsLayer] = useState([]);
@@ -77,7 +80,7 @@ const MazePageContainer = ({ className }) => {
 					console.log(characterLayer);
 					break;
 				case 'KeyS':
-					if (characterLayer[startPointY][startPointX - 1] !== 0) {
+					if (characterLayer[startPointY][startPointX + 1] !== 0) {
 						return;
 					}
 
@@ -97,7 +100,7 @@ const MazePageContainer = ({ className }) => {
 		return () => {
 			document.removeEventListener('keypress', onKeypress);
 		};
-	}, [characterLayer, character, startPointY, startPointX]);
+	}, [characterLayer, startPointY, startPointX]);
 
 	return (
 		<div className={className}>

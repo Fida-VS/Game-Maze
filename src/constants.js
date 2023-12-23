@@ -1,5 +1,6 @@
 import smile from "./img/smile.png";
-export let SIZE_OF_SIDE = 5;
+import hole from './img/hole.svg';
+export let SIZE_OF_SIDE = 21;
 
 
 export const SMILE = {
@@ -8,6 +9,12 @@ export const SMILE = {
 	imgPath: smile,
 }
 
+
+export const HOLE = {
+	id: 11,
+	//imgPath: 'https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f604/u1f604_u1f920.png',
+	imgPath: hole,
+}
 
 
 

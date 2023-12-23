@@ -11,12 +11,19 @@ export const getUnits = (array) => {
 		}
 	}
 
-	const [i, j] = getRandomItem(deadLocksList);
-	const [k, h] = getRandomItem(deadLocksList);
+	let enter = getRandomItem(deadLocksList);
+	let exit = getRandomItem(deadLocksList);
+
+	while(enter === exit){
+		exit = getRandomItem(deadLocksList);
+	}
+
+	// const [i, j] = getRandomItem(deadLocksList);
+	// const [k, h] = getRandomItem(deadLocksList);
 
 
-	deadLocks[i][j] = 4;
-	deadLocks[k][h] = 5;
+	deadLocks[enter[0]][enter[1]] = 4;
+	deadLocks[exit[0]][exit[1]] = 5;
 
 	return deadLocks;
 }

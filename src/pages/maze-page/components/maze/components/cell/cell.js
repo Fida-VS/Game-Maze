@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const CellContainer = ({className, val}) => {
 
-	return <div className={className}>{val}</div>
+	return <div className={className}></div>
 
 };
 
