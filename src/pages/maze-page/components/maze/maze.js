@@ -6,6 +6,7 @@ import { CharacterLayer } from '../character-layer/character-layer';
 
 const MazeContainer = ({ className, mazeLayer, unitsLayer, characterLayer }) => {
 	return (
+
 		<div className={className}>
 			{mazeLayer.map((row, i) => (
 				<div key={i}>
@@ -16,7 +17,9 @@ const MazeContainer = ({ className, mazeLayer, unitsLayer, characterLayer }) => 
 			))}
 			<DeadLocks unitsLayer={unitsLayer}/>
 			<CharacterLayer characterLayer={characterLayer}/>
+
 		</div>
+
 	);
 };
 
@@ -24,7 +27,4 @@ export const Maze = styled(MazeContainer)`
 	position: relative;
 	display: flex;
 	flex-wrap: nowrap;
-	flex-basis: 680px;
-	height: 100%;
-	margin-top: 50px;
 `;

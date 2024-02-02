@@ -12,7 +12,6 @@ export const SMILE = {
 
 export const HOLE = {
 	id: 11,
-	//imgPath: 'https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f604/u1f604_u1f920.png',
 	imgPath: hole,
 }
 

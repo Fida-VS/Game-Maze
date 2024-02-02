@@ -9,14 +9,15 @@
     {
       "login": "FidaVS",
       "password": "123456",
-      "role_id": 1,
+      "role_id": 0,
       "id": "K8-GWP-"
     },
     {
-      "login": "ivan",
+      "login": "testUser2",
       "password": "123456",
-      "role_id": 2,
-      "id": "u7PPXBf"
+      "registed_at": "2059-05-30 06:08",
+      "role_id": 1,
+      "id": "LHaAJwe"
     }
   ],
   "roles": [
@@ -33,13 +34,18 @@
       "name": "Гость"
     }
   ],
-  "comments": [
+  "reviews": [
     {
       "author_id": "001",
-      "post_id": "6djOHAr",
       "published_at": "2038-09-22 16:01",
       "content": "Классная статья! И главное, про кодинг!",
       "id": 1
+    },
+    {
+      "author_id": "001",
+      "published_at": "2056-01-20 01:02",
+      "content": "t54rygt4y",
+      "id": 2
     }
   ],
   "sessions": [
@@ -53,6 +59,97 @@
         "roleId": 0
       },
       "id": 1
+    },
+    {
+      "hash": "0.62921987622507913329172879457473754882812500000000",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 1
+      },
+      "id": 2
+    },
+    {
+      "hash": "0.15910353080972883255128635937580838799476623535156",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 1
+      },
+      "id": 3
+    },
+    {
+      "hash": "0.28344887902456972206266527791740372776985168457031",
+      "user": {
+        "id": "kqxSv_Z",
+        "login": "testUser",
+        "password": "123456",
+        "registeredAt": "2053-04-04 05:54",
+        "roleId": 2
+      },
+      "id": 4
+    },
+    {
+      "hash": "0.94951682896463540650699997058836743235588073730469",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 1
+      },
+      "id": 5
+    },
+    {
+      "hash": "0.90254626647655333826492096704896539449691772460938",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 0
+      },
+      "id": 6
+    },
+    {
+      "hash": "0.36805485223390976834423327090917155146598815917969",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 0
+      },
+      "id": 7
+    },
+    {
+      "hash": "0.83105668660875675612942359293811023235321044921875",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 0
+      },
+      "id": 8
+    },
+    {
+      "hash": "0.64429438372930580847253168030874803662300109863281",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 0
+      },
+      "id": 9
+    },
+    {
+      "hash": "0.31812093086193748980861073505366221070289611816406",
+      "user": {
+        "id": "K8-GWP-",
+        "login": "FidaVS",
+        "password": "123456",
+        "roleId": 0
+      },
+      "id": 10
     }
   ]
 }

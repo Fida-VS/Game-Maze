@@ -1,19 +1,26 @@
 import { ControlPanel, Logo } from './components';
 import styled from 'styled-components';
 
-const Description = styled.div`
-    font-size: 34px;
-	font-weight: bold;
-	margin-left: -40px;
-	margin-top: 20px;
+const Level = styled.div`
+    font-size: 32px;
+	margin-left: 45px;
+	color: #fff;
+`;
+
+const Box = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 `;
 
 const HeaderContainer = ({ className }) => (
 	<header className={className}>
+		<Box>
 		<Logo />
-		<Description>
+		<Level>
 			Уровень 1
-		</Description>
+		</Level>
+		</Box>
 		<ControlPanel />
 	</header>
 );
@@ -26,6 +33,6 @@ export const Header = styled(HeaderContainer)`
 	width: 1000px;
 	height: 120px;
 	padding: 20px 40px;
-	background-color: #fff;
+	background-color: #b2b2b2;
 	z-index: 50;
 `;

@@ -5,25 +5,28 @@ import { getUnits, getCharacter } from './utils';
 import { SIZE_OF_SIDE } from '../../constants';
 import styled from 'styled-components';
 
+
+const MazeBox = styled.div`
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	min-width: 740px;
+	min-height: 740px;
+	background-color: #000;
+	border-radius: 40px;
+`;
+
 let maze = getMaze(SIZE_OF_SIDE);
 let units = getUnits(maze);
-	let character = getCharacter(maze, units);
+let character = getCharacter(maze, units);
 
 const MazePageContainer = ({ className }) => {
-
 	//console.log(character);
 
 	const [mazeLayer, setMazeLayer] = useState([]);
 	const [unitsLayer, setUnitsLayer] = useState([]);
 	const [characterLayer, setCharacterLayer] = useState([]);
-
-	useEffect(() => {
-		setMazeLayer(maze);
-		setUnitsLayer(units);
-		setCharacterLayer(character);
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	const [isRebooted, setIsRebooted] = useState(false);
 
 	let startPointY;
 	let startPointX;
@@ -37,9 +40,13 @@ const MazePageContainer = ({ className }) => {
 	}
 
 	useEffect(() => {
-		const onKeypress = (e) => {
-			console.log(e);
+		setMazeLayer(maze);
+		setUnitsLayer(units);
+		setCharacterLayer(character);
+	}, []);
 
+	useEffect(() => {
+		const onKeypress = (e) => {
 			let newCharacterLayer = characterLayer.slice();
 			// eslint-disable-next-line default-case
 			switch (e.code) {
@@ -48,16 +55,30 @@ const MazePageContainer = ({ className }) => {
 						return;
 					}
 
+					if (unitsLayer[startPointY - 1][startPointX] === 5) {
+						newCharacterLayer[startPointY][startPointX] = 0;
+						newCharacterLayer[startPointY - 1][startPointX] = 6;
+						console.log('перезагрузка');
+						setIsRebooted(!isRebooted);
+					}
+
 					if (characterLayer[startPointY - 1][startPointX] === 0) {
 						newCharacterLayer[startPointY][startPointX] = 0;
 						newCharacterLayer[startPointY - 1][startPointX] = 6;
 					}
 					setCharacterLayer(newCharacterLayer);
-					console.log(characterLayer);
+
 					break;
-				case 'KeyD':
+				case 'KeyD': ///////////////////////////////////////////////////////////////////////D
 					if (characterLayer[startPointY + 1][startPointX] !== 0) {
 						return;
+					}
+
+					if (unitsLayer[startPointY + 1][startPointX] === 5) {
+						newCharacterLayer[startPointY][startPointX] = 0;
+						newCharacterLayer[startPointY + 1][startPointX] = 6;
+						console.log('перезагрузка');
+						setIsRebooted(!isRebooted);
 					}
 
 					if (characterLayer[startPointY + 1][startPointX] === 0) {
@@ -65,11 +86,18 @@ const MazePageContainer = ({ className }) => {
 						newCharacterLayer[startPointY + 1][startPointX] = 6;
 					}
 					setCharacterLayer(newCharacterLayer);
-					console.log(characterLayer);
+
 					break;
-				case 'KeyW':
+				case 'KeyW': /////////////////////////////////////////////////////////////////////////////W
 					if (characterLayer[startPointY][startPointX - 1] !== 0) {
 						return;
+					}
+
+					if (unitsLayer[startPointY][startPointX - 1] === 5) {
+						newCharacterLayer[startPointY][startPointX] = 0;
+						newCharacterLayer[startPointY][startPointX - 1] = 6;
+						console.log('перезагрузка');
+						setIsRebooted(!isRebooted);
 					}
 
 					if (characterLayer[startPointY][startPointX - 1] === 0) {
@@ -77,11 +105,18 @@ const MazePageContainer = ({ className }) => {
 						newCharacterLayer[startPointY][startPointX - 1] = 6;
 					}
 					setCharacterLayer(newCharacterLayer);
-					console.log(characterLayer);
+
 					break;
-				case 'KeyS':
+				case 'KeyS': ///////////////////////////////////////////////////////////////////////////////S
 					if (characterLayer[startPointY][startPointX + 1] !== 0) {
 						return;
+					}
+
+					if (unitsLayer[startPointY][startPointX + 1] === 5) {
+						newCharacterLayer[startPointY][startPointX] = 0;
+						newCharacterLayer[startPointY][startPointX + 1] = 6;
+						console.log('перезагрузка');
+						setIsRebooted(!isRebooted);
 					}
 
 					if (characterLayer[startPointY][startPointX + 1] === 0) {
@@ -89,7 +124,7 @@ const MazePageContainer = ({ className }) => {
 						newCharacterLayer[startPointY][startPointX + 1] = 6;
 					}
 					setCharacterLayer(newCharacterLayer);
-					console.log(characterLayer);
+
 					break;
 			}
 			//console.log("startPointVerx " + characterLayer[startPointY][startPointX-1]);
@@ -100,16 +135,33 @@ const MazePageContainer = ({ className }) => {
 		return () => {
 			document.removeEventListener('keypress', onKeypress);
 		};
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [characterLayer, startPointY, startPointX]);
+
+	useEffect(() => {
+		if (isRebooted) {
+			let maze2 = getMaze(SIZE_OF_SIDE);
+			let units2 = getUnits(maze2);
+			let character2 = getCharacter(maze2, units2);
+			setMazeLayer(maze2);
+			setUnitsLayer(units2);
+			setCharacterLayer(character2);
+			setIsRebooted(!isRebooted);
+		}
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isRebooted]);
 
 	return (
 		<div className={className}>
+			<MazeBox>
 			<Maze
 				mazeLayer={mazeLayer}
 				unitsLayer={unitsLayer}
 				characterLayer={characterLayer}
 			/>
-			<div className="control-panel"></div>
+			</MazeBox>
 		</div>
 	);
 };
@@ -119,9 +171,4 @@ export const MazePage = styled(MazePageContainer)`
 	justify-content: space-around;
 	align-items: center;
 
-	& .control-panel {
-		width: 150px;
-		height: 300px;
-		border: 1px solid black;
-	}
 `;

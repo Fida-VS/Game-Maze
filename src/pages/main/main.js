@@ -1,11 +1,19 @@
-
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MainContainer = ({ className }) => {
 
 	return (
 		<div className={className}>
-               Главная
+			<button>
+			<Link to="/login">Вход</Link>
+			  </button>
+			  <button>
+			<Link to="/register">Регистрация</Link>
+			  </button>
+              <button>
+			<Link to="/maze">Демо</Link>
+			  </button>
 		</div>
 	);
 };
@@ -14,19 +22,21 @@ export const Main = styled(MainContainer)`
 
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		min-height: 850px;
+		justify-content: center;
+		align-items: center;
+		min-height: 750px;
 
-	& .post-list {
-		display: flex;
-		flex-wrap: wrap;
-		padding: 20px 20px 80px;
 
+	& button {
+		width: 35%;
+		height: 60px;
+		font-weight: bold;
+		font-size: 18px;
+		margin-bottom: 70px;
 	}
 
-	& .no-posts-found {
-		font-size: 18px;
-		margin-top: 40px;
-		text-align: center;
+	& a {
+		text-decoration: none;
+		color: #000;
 	}
 `;
